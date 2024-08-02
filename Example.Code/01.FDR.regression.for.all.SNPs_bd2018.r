@@ -14,7 +14,7 @@ options(stringsAsFactors = F)
 start_time = Sys.time() # time tracking
 set.seed(13) # for repeated result
 # load packages
-library(FDRreg);library(data.table);library(powerplus);library(glmnet)
+library(FDRreg); library(data.table); library(powerplus); library(glmnet)
 
 #---- set dir ----#
 setwd('/exeh_4/jinghong_qiu/SO_Lab/level2/fdr_1_all/bd2018/')
