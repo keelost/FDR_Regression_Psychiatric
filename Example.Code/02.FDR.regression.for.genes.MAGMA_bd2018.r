@@ -85,6 +85,9 @@ fdr.the = count_below_threshold(target.gene.order$FDR.the, thresholds)
 fdr.emp = count_below_threshold(target.gene.order$FDR.emp, thresholds)
 bio.fdr.the = count_below_threshold(target.gene.order$bio.FDR.the, thresholds)
 bio.fdr.emp = count_below_threshold(target.gene.order$bio.fdr.emp, thresholds)
+	       
+sum_data = data.frame(qval, fdr.the, fdr.emp, bio.fdr.the, bio.fdr.emp)
+rownames(sum_data) = c('< 0.5', '< 0.4', '< 0.3', '< 0.2', '< 0.1', '< 0.05', '< 0.04', '< 0.03', '< 0.02', '< 0.01', '< 0.001', '< 5e-04', '< 5e-06', '< 5e-08')
 
 cat('----------------------- \n All gene number is: ', length(gene.list), sep = "\n")
 
@@ -92,7 +95,6 @@ cat('----------------------- \n All gene number is: ', length(gene.list), sep = 
 fwrite(as.data.frame(gene.list), 'bd2018.gene.list.txt')
 fwrite(as.data.frame(target.gene.order), 'bd2018.gene.bio.fdrreg.txt', sep=',')
 fwrite(as.data.frame(assessment_sum), '/exeh_4/jinghong_qiu/SO_Lab/Contribution/magma-bd2018.csv', sep=',')
-sum_data = data.frame(qval, fdr.the, fdr.emp, bio.fdr.the, bio.fdr.emp)
 fwrite(as.data.frame(sum_data), '/exeh_4/jinghong_qiu/SO_Lab/level2/Result_table/magma_bd2018.csv', sep=',')	
 save(fdr.target.theore, fdr.target.empiri, fdr.target.theore.bio, fdr.target.empiri.bio, file = "/exeh_4/jinghong_qiu/SO_Lab/level2/FDR_models/magma_bd2018.RData")
 
