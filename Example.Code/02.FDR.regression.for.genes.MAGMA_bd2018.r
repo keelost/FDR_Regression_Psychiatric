@@ -14,7 +14,7 @@ options(stringsAsFactors = F)
 start_time = Sys.time() # time tracking
 set.seed(25) # for repeated result
 # load packages
-library(FDRreg);library(data.table);library(powerplus);library(stringr);library(dplyr);library(glmnet);library(HelpersMG)
+library(FDRreg); library(data.table); library(powerplus); library(stringr); library(dplyr); library(glmnet); library(HelpersMG)
 
 #---- set dir ----#
 setwd('/exeh_4/jinghong_qiu/SO_Lab/level2/magma_1_all/bd2018/Result')
