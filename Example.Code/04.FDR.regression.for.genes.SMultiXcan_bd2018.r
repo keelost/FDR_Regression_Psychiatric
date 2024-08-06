@@ -93,13 +93,13 @@ fdr.target.theore = FDRreg(target.z, z.combine.bio, nulltype = 'theoretical', me
 fdr.target.empiri = FDRreg(target.z, z.combine.bio, nulltype = 'empirical', method = 'pr')
 
 # Assessment-fdr.reg-bio
-	features.se = SEfromHessian(fdr.target.theore$model$hessian)
-	features.coef = fdr.target.theore$model$coef
-	features.z.score = features.coef[c(2:length(features.coef))]/features.se[c(2:length(features.se))]
-	features.pvalue = 2 * pnorm(abs(features.z.score), lower.tail=F)
-	assessment2 = data.frame(colnames(z.combine.bio), features.pvalue, features.coef[c(2:length(features.coef))], features.se[c(2:length(features.se))])
-	colnames(assessment2) = c('feature', 'p2', 'beta2', 'se2')
-	assessment_sum = merge(assessment, assessment2, by='feature', all=T)
+features.se = SEfromHessian(fdr.target.theore$model$hessian)
+features.coef = fdr.target.theore$model$coef
+features.z.score = features.coef[c(2:length(features.coef))]/features.se[c(2:length(features.se))]
+features.pvalue = 2 * pnorm(abs(features.z.score), lower.tail = F)
+assessment2 = data.frame(colnames(z.combine.bio), features.pvalue, features.coef[c(2:length(features.coef))], features.se[c(2:length(features.se))])
+colnames(assessment2) = c('feature', 'p2', 'beta2', 'se2')
+assessment_sum = merge(assessment, assessment2, by='feature', all = T)
 
 # Combind results
 target.gene.order$qval = p.adjust(files[[target_rank]]$pvalue, method='fdr', n=length(files[[target_rank]]$pvalue))
