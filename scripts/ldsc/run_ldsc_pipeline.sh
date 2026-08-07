@@ -1,11 +1,11 @@
 #!/bin/bash
 # ============================================================
-# LDSC: Heritability + 全部 Pairwise Genetic Correlation
+# LDSC: heritability and all pairwise genetic correlations.
 # ============================================================
 # Usage: nohup bash run_ldsc_pipeline.sh > pipeline.log 2>&1 &
 # ============================================================
 
-# ==================== 配置 ====================
+# ==================== Configuration ====================
 TARGET_DIR="${FDRREG_LDSC_TARGET_DIR:?set FDRREG_LDSC_TARGET_DIR}"
 LIBRARY_DIR="${FDRREG_LDSC_LIBRARY_DIR:?set FDRREG_LDSC_LIBRARY_DIR}"
 LDSC="${FDRREG_LDSC_BIN:?set FDRREG_LDSC_BIN to ldsc.py}"
@@ -17,12 +17,12 @@ LOG_DIR="${OUT_DIR}/logs"
 
 mkdir -p "$LOG_DIR"
 
-# ==================== 收集所有 sumstats.gz ====================
+# ==================== Collect all sumstats.gz files ====================
 FILES=()
 NAMES=()
 SOURCES=()
 
-# targets: 后缀为 *.clear.txt.sumstats.gz
+# Targets use the suffix *.clear.txt.sumstats.gz.
 for f in "$TARGET_DIR"/*.clear.txt.sumstats.gz; do
     [ -f "$f" ] || continue
     FILES+=("$f")
@@ -30,7 +30,7 @@ for f in "$TARGET_DIR"/*.clear.txt.sumstats.gz; do
     SOURCES+=("T")
 done
 
-# librarys: 后缀为 *.sumstats.gz (注意与 targets 不同!)
+# Library files use *.sumstats.gz (different from target names).
 for f in "$LIBRARY_DIR"/*.sumstats.gz; do
     [ -f "$f" ] || continue
     FILES+=("$f")
@@ -44,12 +44,12 @@ NL=$(printf '%s\n' "${SOURCES[@]}" | grep -c "^L$")
 NP=$(( N * (N - 1) / 2 ))
 
 echo "============================================================"
-echo "  targets: $NT 个, librarys: $NL 个, 共 $N 个文件"
-echo "  将计算 $NP 对 pairwise genetic correlation"
+echo "  targets: $NT, library traits: $NL, total files: $N"
+echo "  pairwise genetic correlations to calculate: $NP"
 echo "============================================================"
 echo ""
 
-# ==================== CSV 输出 ====================
+# ==================== CSV output ====================
 H2_CSV="${OUT_DIR}/heritability_results.csv"
 echo "file,source,lambda_GC,mean_chi2,h2_intercept,h2_intercept_se" > "$H2_CSV"
 
@@ -79,7 +79,7 @@ for (( k=0; k<N; k++ )); do
     fi
 
     if [ ! -f "$log" ]; then
-        echo "  [ERROR] ${src}:${name} — log 未生成"
+        echo "  [ERROR] ${src}:${name} - log was not generated"
         echo "${name},${src},NA,NA,NA,NA" >> "$H2_CSV"
         continue
     fi
@@ -110,9 +110,9 @@ for (( i=0; i<N; i++ )); do
 
         echo "  [$count/$NP] ${src_i}:${name_i} vs ${src_j}:${name_j}"
 
-        # ---- 跳过已完成 ----
+        # ---- Skip completed jobs ----
         if [ -f "$log" ] && grep -q "Analysis finished" "$log" 2>/dev/null; then
-            echo "        [SKIP] 已完成"
+            echo "        [SKIP] already complete"
         else
             "$PYTHON_BIN" "$LDSC" --rg "${FILES[$i]},${FILES[$j]}" \
                 --ref-ld-chr "$REF_LD" \
@@ -120,24 +120,24 @@ for (( i=0; i<N; i++ )); do
                 --out "$out"
         fi
 
-        # ---- 检查日志 ----
+        # ---- Check the log ----
         if [ ! -f "$log" ] || ! grep -q "Genetic Correlation:" "$log" 2>/dev/null; then
-            echo "        [ERROR] 失败, 查看: $log"
+            echo "        [ERROR] failed; inspect: $log"
             echo "${name_i},${name_j},NA,NA,NA,NA,NA,NA" >> "$RG_CSV"
             continue
         fi
 
-        # ---- 解析 Genetic Correlation ----
+        # ---- Parse Genetic Correlation ----
         rg=$(grep "Genetic Correlation:" "$log" | head -1 | awk '{print $3}')
         se=$(grep "Genetic Correlation:" "$log" | head -1 | sed 's/.*(\(.*\))/\1/')
         rg_pval=$(grep "^P:" "$log" | awk '{print $2}')
 
-        # ---- 解析 Genetic Covariance Intercept ----
+        # ---- Parse Genetic Covariance Intercept ----
         gcov_line=$(awk '/^Genetic Covariance$/,/^Genetic Correlation$/{if(/Intercept:/) print}' "$log")
         gcov_intercept=$(echo "$gcov_line" | awk '{print $2}')
         gcov_intercept_se=$(echo "$gcov_line" | sed 's/.*(\(.*\))/\1/')
 
-        # ---- intercept p-value (Python 2.7 兼容, 通过 sys.argv 传参) ----
+        # ---- Intercept p-value (Python 2.7 compatible; arguments via sys.argv) ----
         gcov_int_pval=$(python -c "
 from scipy.stats import norm
 import sys
@@ -151,8 +151,8 @@ done
 
 echo ""
 echo "============================================================"
-echo "  全部分析完成!"
+echo "  All analyses complete"
 echo "  Heritability:        $H2_CSV"
 echo "  Genetic Correlation: $RG_CSV"
-echo "  LDSC 日志:           $LOG_DIR/"
+echo "  LDSC logs:           $LOG_DIR/"
 echo "============================================================"

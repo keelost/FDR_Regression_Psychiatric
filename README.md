@@ -45,7 +45,7 @@ scripts/ldsc            LDSC execution and result reconstruction
 scripts/imputation      DIST input preparation, execution, and output mapping
 ```
 
-When duplicate source files existed, the version in the original `测试`
+When duplicate source files existed, the version in the original test
 directory was selected. GTEx v7 and v8 scripts are intentionally both kept.
 
 The frozen biological-annotation matrices used in the study are provided in

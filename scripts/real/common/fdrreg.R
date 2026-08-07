@@ -418,7 +418,7 @@ if (has_overlap) {
           covariance_matrix[i, j] <- value
           covariance_matrix[j, i] <- value
         } else {
-          warning(paste("未找到性状对:", trait_i, "和", trait_j, "的匹配数据。"))
+          warning(paste("No matching data found for trait pair:", trait_i, "and", trait_j))
           covariance_matrix[i, j] <- 0
           covariance_matrix[j, i] <- 0
         }

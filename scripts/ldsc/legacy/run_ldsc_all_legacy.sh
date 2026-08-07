@@ -16,7 +16,7 @@ while read TRAIT NCASE NCON; do
 
         echo "Processing ${TRAIT}"
 
-        # Step 1: 重新格式化列名
+        # Step 1: normalize column names.
         awk 'NR==1{
             print "SNP CHR BP A1 A2 Z INFO P"
             next

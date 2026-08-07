@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================
-# 从已有日志重建 genetic_correlation_results.csv
-# p1/p2 格式: T:adhd2017, L:bd2018 等
+# Rebuild genetic_correlation_results.csv from existing logs.
+# p1/p2 format examples: T:adhd2017 and L:bd2018.
 # ============================================================
 
 OUT_DIR="/exeh_4/jinghong_qiu/SO_Lab/15.fdrreg.update/01.result/10.ldsc"
@@ -17,7 +17,7 @@ for log in "$LOG_DIR"/*__vs__*.log; do
     [ -f "$log" ] || continue
     fname=$(basename "$log" .log)
 
-    # ---- 跳过不完整的日志 ----
+    # ---- Skip incomplete logs ----
     if ! grep -q "Analysis finished" "$log" 2>/dev/null; then
         ((skip++)); continue
     fi
@@ -25,16 +25,16 @@ for log in "$LOG_DIR"/*__vs__*.log; do
         ((skip++)); continue
     fi
 
-    # ---- 解析 p1, p2 (含来源) ----
+    # ---- Parse p1 and p2, including their sources ----
     left="${fname%%__vs__*}"
     right="${fname#*__vs__}"
 
     if [[ "$left" =~ ^[TL]__ ]] && [[ "$right" =~ ^[TL]__ ]]; then
-        # 新格式: T__adhd2017__vs__L__bd2018
+        # New format: T__adhd2017__vs__L__bd2018.
         p1="${left:0:1}:${left:3}"
         p2="${right:0:1}:${right:3}"
     else
-        # 旧格式: adhd2017__vs__bd2018 → 从日志 summary table 的路径推断
+        # Old format: infer sources for adhd2017__vs__bd2018 from summary-table paths.
         summary_line=$(grep "\.sumstats" "$log" | tail -1)
         path1=$(echo "$summary_line" | awk '{print $1}')
         path2=$(echo "$summary_line" | awk '{print $2}')
@@ -46,7 +46,7 @@ for log in "$LOG_DIR"/*__vs__*.log; do
         p2="${src2}:${right}"
     fi
 
-    # ---- 去重 (新日志文件名靠前, 优先保留) ----
+    # ---- Deduplicate, preferring the newer log naming format ----
     key="${p1}|${p2}"
     if [ -n "${seen[$key]+x}" ]; then
         ((dup++)); continue
@@ -54,17 +54,17 @@ for log in "$LOG_DIR"/*__vs__*.log; do
     seen[$key]=1
     ((count++))
 
-    # ---- 解析 rg ----
+    # ---- Parse rg ----
     rg=$(grep "Genetic Correlation:" "$log" | head -1 | awk '{print $3}')
     se=$(grep "Genetic Correlation:" "$log" | head -1 | sed 's/.*(\(.*\))/\1/')
     rg_pval=$(grep "^P:" "$log" | awk '{print $2}')
 
-    # ---- 解析 gcov intercept ----
+    # ---- Parse the genetic-covariance intercept ----
     gcov_line=$(awk '/^Genetic Covariance$/,/^Genetic Correlation$/{if(/Intercept:/) print}' "$log")
     gcov_intercept=$(echo "$gcov_line" | awk '{print $2}')
     gcov_intercept_se=$(echo "$gcov_line" | sed 's/.*(\(.*\))/\1/')
 
-    # ---- intercept p-value (Python 2.7 兼容) ----
+    # ---- Intercept p-value (Python 2.7 compatible) ----
     gcov_int_pval=$(python -c "
 from scipy.stats import norm
 import sys
@@ -77,12 +77,12 @@ done
 
 echo ""
 echo "============================================================"
-echo "  完成!"
-echo "  写入: $count 对"
-echo "  去重: $dup 个 (新旧日志重复)"
-echo "  跳过: $skip 个 (未完成或无结果)"
-echo "  输出: $RG_CSV"
+echo "  Complete"
+echo "  pairs written: $count"
+echo "  duplicates removed: $dup (old/new log overlap)"
+echo "  skipped: $skip (incomplete or missing result)"
+echo "  output: $RG_CSV"
 echo "============================================================"
 echo ""
-echo "预览前 15 行:"
+echo "First 15 rows:"
 head -15 "$RG_CSV"

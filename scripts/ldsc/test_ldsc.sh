@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================
-# 测试脚本: 验证解析逻辑与配对逻辑
-# 运行: bash test_ldsc.sh
+# Test script: validate parsing and pairing logic.
+# Run: bash test_ldsc.sh
 # ============================================================
 
 PASS=0; FAIL=0
@@ -20,8 +20,8 @@ check() {
 
 TEST_DIR=$(mktemp -d)
 
-# ==================== Part 1: h2 日志解析 ====================
-echo "=== Part 1: h2 日志解析 ==="
+# ==================== Part 1: h2 log parsing ====================
+echo "=== Part 1: h2 log parsing ==="
 
 cat > "$TEST_DIR/phenA.h2.log" << 'EOF'
 Heritability of phenotype 1
@@ -42,9 +42,9 @@ check "Mean Chi^2"   "1.9417" "$(grep "Mean Chi^2:" "$log" | awk '{print $NF}')"
 check "h2 Intercept" "1.0474" "$(grep "Intercept:" "$log" | awk '{print $2}')"
 check "h2 Int SE"    "0.0118" "$(grep "Intercept:" "$log" | sed 's/.*(\(.*\))/\1/')"
 
-# ==================== Part 2: rg 日志解析 ====================
+# ==================== Part 2: rg log parsing ====================
 echo ""
-echo "=== Part 2: rg 日志解析 ==="
+echo "=== Part 2: rg log parsing ==="
 
 cat > "$TEST_DIR/A__vs__B.rg.log" << 'EOF'
 Heritability of phenotype 1
@@ -104,11 +104,11 @@ from scipy.stats import norm
 z = -0.0019 / 0.0064
 print(f'{2.0 * norm.sf(abs(z)):.6e}')
 " 2>/dev/null)
-echo "  [info] intercept p-value = $gcov_int_pval (需要 scipy)"
+echo "  [info] intercept p-value = $gcov_int_pval (requires scipy)"
 
-# ==================== Part 3: 配对逻辑 ====================
+# ==================== Part 3: pairing logic ====================
 echo ""
-echo "=== Part 3: 配对逻辑 (含同名文件冲突测试) ==="
+echo "=== Part 3: pairing logic (including duplicate-name conflicts) ==="
 
 mkdir -p "$TEST_DIR/gc.targets" "$TEST_DIR/gc.librarys"
 touch "$TEST_DIR/gc.targets/bip.clear.txt.sumstats.gz"
@@ -127,33 +127,33 @@ done
 
 N=${#FILES[@]}
 NP=$(( N * (N - 1) / 2 ))
-check "文件总数"   "5" "$N"
-check "配对总数"   "10" "$NP"
+check "total files" "5" "$N"
+check "total pairs" "10" "$NP"
 
 echo ""
-echo "  全部配对:"
+echo "  All pairs:"
 pair_count=0
 for (( i=0; i<N; i++ )); do
     for (( j=i+1; j<N; j++ )); do
         ((pair_count++))
         ni=$(basename "${FILES[$i]}" .clear.txt.sumstats.gz)
         nj=$(basename "${FILES[$j]}" .clear.txt.sumstats.gz)
-        # 标注来源
+        # Label the source.
         [[ "${FILES[$i]}" == *"/gc.targets/"* ]] && ni="T:${ni}" || ni="L:${ni}"
         [[ "${FILES[$j]}" == *"/gc.targets/"* ]] && nj="T:${nj}" || nj="L:${nj}"
         echo "    $pair_count. $ni <-> $nj"
     done
 done
-check "实际配对数" "10" "$pair_count"
+check "actual pair count" "10" "$pair_count"
 
 rm -rf "$TEST_DIR"
 
 echo ""
 echo "============================================"
-echo "  测试结果: PASS=$PASS, FAIL=$FAIL"
+echo "  Test results: PASS=$PASS, FAIL=$FAIL"
 if [ "$FAIL" -eq 0 ]; then
-    echo "  全部通过 ✓"
+    echo "  All tests passed"
 else
-    echo "  存在失败项，请检查 ✗"
+    echo "  Some tests failed; review the output"
 fi
 echo "============================================"
