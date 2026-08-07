@@ -1,0 +1,33 @@
+FDRreg Psychiatric GWAS Pipeline
+================================
+
+Scope of this repository
+------------------------
+
+This repository contains the study-specific psychiatric genomics workflow,
+including GWAS preparation, covariate selection, sample-overlap decorrelation,
+pipeline orchestration, sensitivity analyses, enrichment, validation, and
+reporting code used for the associated psychiatric-disorder study.
+
+Upstream FDRreg ownership
+-------------------------
+
+The FDRreg statistical method and the third-party FDRreg R package were
+developed and published by their original authors. They were not created by the
+authors of this repository. The repository invokes FDRreg as an external
+dependency; it does not transfer ownership of, or supersede the citation and
+license requirements for, the upstream method or package.
+
+Users should cite both:
+
+1. The original FDRreg method/package, following its official documentation.
+2. This psychiatric genomics workflow and its associated study, using
+   CITATION.cff.
+
+License boundary
+----------------
+
+The repository MIT license applies only to material owned by the repository
+authors. Third-party software, reference panels, models, annotations, and GWAS
+datasets remain subject to their respective licenses, terms of use, and data
+access restrictions.

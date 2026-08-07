@@ -1,0 +1,17 @@
+target	traits_no	traits_with
+adhd2016	alco2018,asd2019,dx.dep,edu,ever.csh,insom2019,inte,mdd2019,neuroti2018,ptsd2019	college2013
+adhd2019	antisocial,cannabis,college2013,dx.life.threat.ill,edu,ever.csh,ever.st,insom2019,inte,life.threat.accident,neuroti2018,no.dep,ocd2018,psycho.experi,st,st.dep,wit.death	alco2018,asd2019,bd2018,dx.dep,ever.sh,mdd2019,ptsd2019,sa.ipsych,smoking,tense,wal.scz2018
+asd2015.pgc	cannabis,chrono,college2013,edu,ever.st,inte,life.threat.accident,mdd2019,no.dep,physical.crime,scz.eas2019,wal.scz2018	
+asd2019	bd2018,cannabis,chrono,college2013,dx.dep,edu,ever.csh,ever.sh,ever.st,inte,life.threat.accident,neuroti2018,no.dep,physical.crime,scz.eas2019,st,wal.scz2018	adhd2019,ed2019,mdd2019,ptsd2019
+bd2012	ad,asd2019,cannabis,college2013,dx.dep,edu,ever.csh,ever.sh,ever.st,life.threat.accident,mddco,neuroti2018,no.dep,ocd2018,scz.eas2019,sleep.dura	alco2018,ed2019,mdd2019,wal.scz2018
+bd2018	ad,asd2019,cannabis,edu,ever.csh,ever.sh,ever.st,life.threat.accident,neuroti2018,no.dep,physical.crime,sleep.dura,wit.death	adhd2019,alco2018,dx.dep,tense
+mdd2013	anx,asd2019,cannabis,dx.dep,ever.csh,ever.sh,ever.st,insom2019,inte,life.threat.accident,neuroti2018,no.dep,physical.crime,ptsd2019,scz.eas2019,st,st.dep	adhd2019,alco2018,antisocial,bd2018,chrono,ed2019,neo.c,wal.scz2018
+mdd2019	antisocial,edu,inte,ocd2018,sa.ipsych,scz.eas2019,wit.death	ad,adhd2019,alco2018,anx,asd2019,bd2018,cannabis,chrono,dx.dep,dx.life.threat.ill,ed2019,ever.csh,ever.sh,ever.st,insom2019,life.threat.accident,neuroti2018,no.dep,physical.crime,psycho.experi,ptsd2019,sleep.dura,st,st.dep,tense,wal.scz2018
+mddco	bd2018,cannabis,dx.dep,ed2019,edu,ocd2018,scz.eas2019	neuroti2018,wal.scz2018
+sa.bpd.pgc	adhd2019,edu,ever.csh,ever.sh,insom2019,inte,psycho.experi	mdd2019,tense
+sa.ipsych	alco2018,child.iq2014,dx.dep,edu,ever.csh,ever.st,insom2019,inte,life.threat.accident,mdd2019,st,st.dep,wit.death	adhd2019,cannabis,physical.crime,ptsd2019
+sa.scz.pgc	edu,mdd2019	
+scz.eas2019	alco2018,bd2018,cannabis,chrono,edu,ever.sh,inte,life.threat.accident,mdd2019,neuroti2018,no.dep,physical.crime,ptsd2019,reac,sleep.dura	ever.st
+scz2012	asd2019,cannabis,chrono,college2013,dx.dep,edu,ever.csh,ever.sh,ever.st,inte,life.threat.accident,mddco,neo.o,neuroti2018,no.dep,physical.crime,ptsd2019,sleep.dura,st.dep	adhd2019,alco2018,bd2018,ed2019,mdd2019,ocd2018,reac,tense
+scz2014	ad,asd2019,cannabis,chrono,dx.dep,dx.life.threat.ill,edu,ever.csh,ever.sh,inte,mddco,neuroti2018,no.dep,sleep.dura,smoking,st,st.dep,wit.death	adhd2019,alco2018,bd2018,ed2019,ever.st,life.threat.accident,mdd2019,ocd2018,physical.crime,ptsd2019,reac,tense
+wal.scz2018	asd2019,cannabis,chrono,dx.dep,dx.life.threat.ill,ever.csh,ever.sh,inte,life.threat.accident,neuroti2018,no.dep,pd,sleep.dura,smoking,st,st.dep,wit.death	ad,adhd2019,alco2018,anx,bd2018,ed2019,ever.st,mdd2019,mddco,ocd2018,physical.crime,ptsd2019,reac,tense

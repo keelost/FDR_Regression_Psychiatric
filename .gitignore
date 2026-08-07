@@ -1,49 +1,67 @@
-# History files
-.Rhistory
-.Rapp.history
+# ---- Large genomic data files ----
+*.gz
+*.vcf
+*.vcf.gz
+*.bgen
+*.bgen.bgi
+*.sumstats
+*.sumstats.gz
+*.ldsc
+*.bed
+*.bim
+*.fam
+*.bim.gz
+*.bed.gz
 
-# Session Data files
+# ---- PLINK binary files ----
+*.nbin
+*.log
+
+# ---- R session files ----
 .RData
-.RDataTmp
-
-# User-specific files
-.Ruserdata
-
-# Example code in package build process
-*-Ex.R
-
-# Output files from R CMD build
-/*.tar.gz
-
-# Output files from R CMD check
-/*.Rcheck/
-
-# RStudio files
+.Rhistory
 .Rproj.user/
+*.Rproj
 
-# produced vignettes
-vignettes/*.html
-vignettes/*.pdf
+# ---- Local server configuration ----
+config/project.env
 
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
-.httr-oauth
+# ---- Data directories (contents only, keep .gitkeep) ----
+data/raw/*
+!data/raw/.gitkeep
+data/reference/*
+!data/reference/.gitkeep
+data/annotations/*
+!data/annotations/.gitkeep
+!data/annotations/magma-library-all.csv
+!data/annotations/magma-library-uniq-ensembl.csv
+!data/annotations/magma-library-uniq-entrez.csv
 
-# knitr and R markdown default cache directories
-*_cache/
-/cache/
+# ---- Results directory (contents only, keep .gitkeep) ----
+results/*
+!results/.gitkeep
 
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
+# ---- Python cache ----
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
 
-# R Environment Variables
-.Renviron
+# ---- Jupyter notebook checkpoints ----
+.ipynb_checkpoints/
 
-# pkgdown site
-docs/
+# ---- IDE / Editor ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-# translation temp files
-po/*~
+# ---- OS files ----
+.DS_Store
+Thumbs.db
 
-# RStudio Connect folder
-rsconnect/
+# ---- Conda environments ----
+.conda/

@@ -1,0 +1,3 @@
+version	metaxcan_input	metaxcan_fdrreg	smultixcan_input	smultixcan_fdrreg	metaxcan_prefix	metaxcan_region_suffix
+v8	06.metaxcan	07.metaxcan_fdrreg	08.smultixcan_output	09.smultixcan_fdrreg	gtex_v8_	.overlap.4magma_in_
+v7	06.metaxcan_v7	07.metaxcan_fdrreg_v7	08.smultixcan_output_v7	09.smultixcan_fdrreg_v7	gtex_v7_	_in_

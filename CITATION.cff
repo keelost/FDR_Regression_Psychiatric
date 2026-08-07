@@ -1,0 +1,53 @@
+cff-version: 1.2.0
+title: "FDRreg Psychiatric GWAS Pipeline"
+message: "This repository provides the psychiatric genomics workflow, not the third-party FDRreg method or R package. Cite this workflow and the upstream FDRreg method/package separately."
+type: software
+abstract: "Study-specific psychiatric genomics workflow for applying the independently developed FDRreg method across SNP, MAGMA, MetaXcan, and SMultiXcan analyses. The authors of this repository do not claim authorship of the FDRreg statistical method or the third-party FDRreg R package."
+authors:
+  - family-names: "Qiu"
+    given-names: "Jing-hong"
+    affiliation: "School of Biomedical Sciences, The Chinese University of Hong Kong"
+    orcid: "https://orcid.org/0009-0002-8113-7529"
+  - family-names: "Rao"
+    given-names: "Shi-tao"
+  - family-names: "So"
+    given-names: "Hon-Cheong"
+
+version: "1.0.0"
+license: "MIT"
+repository-code: "https://github.com/keelost/FDR_Regression_Psychiatric"
+keywords:
+  - GWAS
+  - FDR regression
+  - psychiatric genetics
+  - multiple testing
+  - empirical Bayes
+  - MAGMA
+  - MetaXcan
+  - genetic correlation
+
+preferred-citation:
+  type: article
+  title: "Discovering additional genetic loci associated with six psychiatric disorders/traits via FDR regression model, leveraging external genetic and biological data"
+  authors:
+    - family-names: "Rao"
+      given-names: "Shi-tao"
+    - family-names: "Qiu"
+      given-names: "Jing-hong"
+    - family-names: "Zhi"
+      given-names: "Yi-qiang"
+    - family-names: "Ma"
+      given-names: "Zhi-jie"
+    - family-names: "Lin"
+      given-names: "Yu-ping"
+    - family-names: "Zhang"
+      given-names: "Ruo-yu"
+    - family-names: "Zhi"
+      given-names: "Shuai"
+    - family-names: "Xu"
+      given-names: "Dan"
+    - family-names: "So"
+      given-names: "Hon-Cheong"
+  journal: "medRxiv"
+  year: 2024
+  doi: "10.1101/2024.01.29.24301912"
