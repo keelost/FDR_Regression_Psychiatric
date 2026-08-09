@@ -5,7 +5,6 @@
 # SoftWare: R-4.5.3
 # Platform: Server 203
 # Date: 2026/07/08
-# Author: Jinghong QIU
 # Description: KEGG/GO enrichment on FDRreg gene lists, using each file's own
 #              gene set as the enrichment background. Results are written per
 #              target (dataset) as tab-separated files.

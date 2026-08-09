@@ -2,7 +2,6 @@
 """
 Batch MAGMA Analysis Script - Final Version
 Purpose: Automatically run MAGMA analysis for multiple traits based on input file names
-Author: Chief Scientist
 Date: 2024
 """
 

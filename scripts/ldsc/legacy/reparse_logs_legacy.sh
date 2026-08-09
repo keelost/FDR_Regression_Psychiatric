@@ -4,7 +4,7 @@
 # Run: bash reparse_ldsc_logs.sh
 # ============================================================
 
-OUT_DIR="/exeh_4/jinghong_qiu/SO_Lab/15.fdrreg.update/01.result/10.ldsc"
+OUT_DIR="/path/to/SO_Lab/15.fdrreg.update/01.result/10.ldsc"
 LOG_DIR="${OUT_DIR}/logs"
 
 # ==================== CSV output ====================

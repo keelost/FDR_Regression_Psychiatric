@@ -22,7 +22,6 @@
 #       --traits_with ad,adhd2019,... --traits_no asd2019,cannabis,... \
 #       --lasso N --seed 100
 # Date: 2026/07/06
-# Author: Chief Scientist
 # Version: 3.0 (reuse fdrreg.R MAGMA inputs; gene/SNP list matches original)
 
 rm(list = ls())
@@ -90,7 +89,7 @@ cat("============================================================\n")
 #---- Fixed Path Parameters ----#
 #-------------------------------#
 
-base_output_path <- '/exeh_4/jinghong_qiu/SO_Lab/18.fdrreg_rebuild'
+base_output_path <- '/path/to/SO_Lab/18.fdrreg_rebuild'
 sensitivity_output_path <- file.path(base_output_path, '01.extra.analysis', '08.z_abs')
 target_output_root <- file.path(sensitivity_output_path, target_name)
 dir.create(target_output_root, showWarnings = FALSE, recursive = TRUE)

@@ -5,7 +5,6 @@
 #**********************************#
 # R-4.0.2
 # Optimized: 2026/06/02
-# Written by JinghongQIU
 # Modified for GTEx v7 + multi-target parallel execution.
 
 #---- Argument Parsing ----#

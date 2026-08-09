@@ -2,7 +2,6 @@
 """
 Single Target MAGMA Analysis Script
 Purpose: Run MAGMA analysis for all traits within a specific target
-Author: Chief Scientist
 Date: 2024
 """
 

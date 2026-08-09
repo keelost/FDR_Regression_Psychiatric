@@ -19,7 +19,6 @@
 #   pipeline actually feeds into FDRreg.
 #
 # Note: This script only inspects/derives; it does NOT re-run FDRreg.
-# Author: Chief Scientist
 # Version: 1.1
 
 rm(list = ls())

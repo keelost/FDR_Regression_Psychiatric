@@ -7,7 +7,6 @@
 #              metrics (BH q-value, FDRreg theoretical/empirical) and automatic
 #              per-target population assignment (EUR/EAS) for batch processing.
 # Date: 2026/06/02
-# Author: Jinghong QIU (Modified by Chief Scientist)
 # Version: 3.0
 
 #-----------------------------#

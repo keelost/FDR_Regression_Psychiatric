@@ -5,7 +5,6 @@
 #**********************************#
 # R-4.0.2
 # Optimized: 2026/06/02
-# Written by JinghongQIU
 # Modified for GTEx v7 + multi-target parallel execution.
 
 #---- Argument Parsing ----#
@@ -54,7 +53,7 @@ option_list <- list(
   make_option(
     c("--input_dir"),
     type = "character",
-    default = "/exeh_4/jinghong_qiu/SO_Lab/18.fdrreg_rebuild",
+    default = "/path/to/SO_Lab/18.fdrreg_rebuild",
     help = "Base input directory. [default: %default]"
   ),
   make_option(
@@ -66,7 +65,7 @@ option_list <- list(
   make_option(
     c("--bio_file"),
     type = "character",
-    default = "/exeh_4/jinghong_qiu/global.files/magma-library-uniq-ensembl.csv",
+    default = "/path/to/global.files/magma-library-uniq-ensembl.csv",
     help = "Path to biological annotation file. [default: %default]"
   )
 )

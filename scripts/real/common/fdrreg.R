@@ -16,7 +16,6 @@
 #       --lasso N \
 #       --seed 100
 # Date: 2026/06/02
-# Author: Jinghong QIU (Modified by Chief Scientist)
 # Version: 2.0
 
 #-----------------------------#

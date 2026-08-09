@@ -1,10 +1,10 @@
 #!/bin/bash
 
-BASE_DIR="/exeh_4/jinghong_qiu/SO_Lab/level2/overlapping_1_all"
-LDSC_DIR="/exeh_4/jinghong_qiu/ldsc"
-REF_LD="/exeh_4/jinghong_qiu/ldsc/eur_w_ld_chr/"
-W_LD="/exeh_4/jinghong_qiu/ldsc/eur_w_ld_chr/"
-OUT_DIR="/exeh_4/jinghong_qiu/SO_Lab/15.fdrreg.update/01.result/05.locfdr/ldsc_results"
+BASE_DIR="/path/to/SO_Lab/level2/overlapping_1_all"
+LDSC_DIR="/path/to/ldsc"
+REF_LD="/path/to/ldsc/eur_w_ld_chr/"
+W_LD="/path/to/ldsc/eur_w_ld_chr/"
+OUT_DIR="/path/to/SO_Lab/15.fdrreg.update/01.result/05.locfdr/ldsc_results"
 
 mkdir -p ${OUT_DIR}
 
@@ -44,4 +44,4 @@ while read TRAIT NCASE NCON; do
         echo "File not found: ${FILE}"
     fi
 
-done < /exeh_4/jinghong_qiu/SO_Lab/15.fdrreg.update/01.result/02.mtag/sample_size.txt
+done < /path/to/SO_Lab/15.fdrreg.update/01.result/02.mtag/sample_size.txt

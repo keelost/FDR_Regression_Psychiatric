@@ -25,7 +25,6 @@
 #       --seed 100
 #
 # Date: 2026/07/05
-# Author: Chief Scientist
 # Version: 2.0
 # Update: Reuses harmonised MAGMA input files produced by fdrreg.R v2.0.
 

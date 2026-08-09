@@ -22,7 +22,6 @@
 #       --traits_with ad,adhd2019,... --traits_no asd2019,cannabis,... \
 #       --lasso N --seed 100
 # Date: 2026/07/06
-# Author: Chief Scientist
 # Version: 3.0 (reuse fdrreg.R MAGMA inputs; gene/SNP list matches original)
 
 rm(list = ls())

@@ -37,14 +37,14 @@ option_list <- list(
   make_option(
     c("--base_dir"),
     type = "character",
-    default = "/exeh_4/jinghong_qiu/SO_Lab/18.fdrreg_rebuild",
+    default = "/path/to/SO_Lab/18.fdrreg_rebuild",
     help = "Base directory containing original analyses. [default: %default]"
   ),
   make_option(
     c("--ablation_dir"),
     type = "character",
     default = paste0(
-      "/exeh_4/jinghong_qiu/SO_Lab/18.fdrreg_rebuild/",
+      "/path/to/SO_Lab/18.fdrreg_rebuild/",
       "01.extra.analysis/10.ablation_v7"
     ),
     help = "Ablation analysis directory. [default: %default]"
@@ -59,7 +59,7 @@ option_list <- list(
     c("--output"),
     type = "character",
     default = paste0(
-      "/exeh_4/jinghong_qiu/SO_Lab/18.fdrreg_rebuild/",
+      "/path/to/SO_Lab/18.fdrreg_rebuild/",
       "01.extra.analysis/10.ablation/ablation.summary.csv"
     ),
     help = "Output summary CSV file. [default: %default]"

@@ -4,7 +4,7 @@
 # p1/p2 format examples: T:adhd2017 and L:bd2018.
 # ============================================================
 
-OUT_DIR="/exeh_4/jinghong_qiu/SO_Lab/15.fdrreg.update/01.result/10.ldsc"
+OUT_DIR="/path/to/SO_Lab/15.fdrreg.update/01.result/10.ldsc"
 LOG_DIR="${OUT_DIR}/logs"
 RG_CSV="${OUT_DIR}/genetic_correlation_results.csv"
 

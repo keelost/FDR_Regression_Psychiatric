@@ -19,7 +19,6 @@
 #   pipeline actually feeds into FDRreg.
 #
 # Note: This script only inspects/derives; it does NOT re-run FDRreg.
-# Author: Chief Scientist
 # Version: 1.1
 
 rm(list = ls())
@@ -93,14 +92,14 @@ classify_sign <- function(e1, e2, o1, o2) {
 #-------------------------------#
 
 # Directory that holds one sub-directory per already-processed target.
-results_root <- "/exeh_4/jinghong_qiu/SO_Lab/18.fdrreg_rebuild"
+results_root <- "/path/to/SO_Lab/18.fdrreg_rebuild"
 
 # New input sources for requirement (2).
 targets_dir <- "/exeh_3/rstao/dr.so/002.meta/002.clear.data/targets"   # target SNPs
 library_dir <- "/exeh_3/rstao/dr.so/002.meta/002.clear.data/library"   # trait SNPs (.txt.gz)
 
 # Where to write the audit summary (dedicated tmp/summary directory).
-audit_dir <- "/exeh_4/jinghong_qiu/SO_Lab/18.fdrreg_rebuild/01.extra.analysis/07.dist"
+audit_dir <- "/path/to/SO_Lab/18.fdrreg_rebuild/01.extra.analysis/07.dist"
 dir.create(audit_dir, showWarnings = FALSE, recursive = TRUE)
 audit_out <- file.path(audit_dir, "snp_overlap_audit.csv")
 

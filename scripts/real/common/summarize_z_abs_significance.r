@@ -5,7 +5,6 @@
 #              MetaXcan counts are reported per region (long) and summed (wide).
 # Usage: Rscript summarize_z_abs_significance.R
 # Date: 2026/07/06
-# Author: Chief Scientist
 
 suppressPackageStartupMessages(library(data.table))
 

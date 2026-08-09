@@ -9,11 +9,11 @@
 # ==================== Configuration ====================
 TARGET_DIR="/exeh_3/rstao/dr.so/002.meta/002.clear.data/gc.targets"
 LIBRARY_DIR="/exeh_3/rstao/dr.so/002.meta/002.clear.data/gc.library"
-LDSC="/exeh_4/jinghong_qiu/ldsc/ldsc.py"
-MUNGE="/exeh_4/jinghong_qiu/ldsc/munge_sumstats.py"
+LDSC="/path/to/ldsc/ldsc.py"
+MUNGE="/path/to/ldsc/munge_sumstats.py"
 REF_LD="/exeh_3/rstao/programs/ldsc/eur_w_ld_chr/"
 W_LD="/exeh_3/rstao/programs/ldsc/eur_w_ld_chr/"
-OUT_DIR="/exeh_4/jinghong_qiu/SO_Lab/15.fdrreg.update/01.result/10.ldsc"
+OUT_DIR="/path/to/SO_Lab/15.fdrreg.update/01.result/10.ldsc"
 LOG_DIR="${OUT_DIR}/logs"
 
 # Output directory for munge products (must be writable).

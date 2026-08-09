@@ -15,13 +15,13 @@ suppressMessages({
 cfg <- list(
   test_target = "scz2014",              # <-- single target under test
 
-  base_dir  = "/exeh_4/jinghong_qiu/SO_Lab/18.fdrreg_rebuild/",
-  out_dir   = "/exeh_4/jinghong_qiu/SO_Lab/18.fdrreg_rebuild/01.extra.analysis/03.drug_enrichment/TEST/",
+  base_dir  = "/path/to/SO_Lab/18.fdrreg_rebuild/",
+  out_dir   = "/path/to/SO_Lab/18.fdrreg_rebuild/01.extra.analysis/03.drug_enrichment/TEST/",
 
-  lib_entrez = "/exeh_4/jinghong_qiu/global.files/magma-library-uniq-entrez.csv",
-  drug_mat   = "/exeh_4/jinghong_qiu/global.files/mat.drug_DSigDB.Rdata",
-  atc_lists  = "/exeh_4/jinghong_qiu/global.files/ATC_drug_lists_ALL.Rdata",
-  fn_atc     = "/exeh_4/jinghong_qiu/global.files/005.drug_ATC.category_asFunc.R",
+  lib_entrez = "/path/to/global.files/magma-library-uniq-entrez.csv",
+  drug_mat   = "/path/to/global.files/mat.drug_DSigDB.Rdata",
+  atc_lists  = "/path/to/global.files/ATC_drug_lists_ALL.Rdata",
+  fn_atc     = "/path/to/global.files/005.drug_ATC.category_asFunc.R",
 
   magma_sub  = "05.magma_fdrreg",
   smx_sub    = "09.smultixcan_fdrreg",

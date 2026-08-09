@@ -6,7 +6,7 @@
 # Usage:
 #   Rscript deco_validation.R \
 #     --targets "adhd2019,scz2018,bd2012" \
-#     --output-base /exeh_4/jinghong_qiu/SO_Lab/18.fdrreg_rebuild/01.extra.analysis/01.deco_diagnosis \
+#     --output-base /path/to/SO_Lab/18.fdrreg_rebuild/01.extra.analysis/01.deco_diagnosis \
 #     --max 4
 #
 # Input  (per target, from fdrreg.R v2.0):
@@ -46,7 +46,7 @@ option_list <- list(
               default = NULL,
               help = "Base output directory; each target gets its own sub-folder. [REQUIRED]"),
   make_option(c("-p", "--pipeline-base"), type = "character", dest = "pipeline_base",
-              default = "/exeh_4/jinghong_qiu/SO_Lab/18.fdrreg_rebuild",
+              default = "/path/to/SO_Lab/18.fdrreg_rebuild",
               help = "Root directory of the fdrreg.R pipeline output. [default: %default]"),
   make_option(c("-q", "--p-thresholds"), type = "character", dest = "p_thresholds",
               default = "0,0.05,0.1,0.2,0.3",

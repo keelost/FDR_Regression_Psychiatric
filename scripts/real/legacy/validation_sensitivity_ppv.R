@@ -62,7 +62,7 @@ option_list <- list(
   make_option(
     c("-b", "--base-path"),
     type = "character",
-    default = "/exeh_4/jinghong_qiu/SO_Lab/18.fdrreg_rebuild",
+    default = "/path/to/SO_Lab/18.fdrreg_rebuild",
     dest = "base_path",
     help = "Base directory containing all study folders [default: %default]",
     metavar = "DIR"
@@ -71,7 +71,7 @@ option_list <- list(
     c("-o", "--base-output"),
     type = "character",
     default = paste0(
-      "/exeh_4/jinghong_qiu/SO_Lab/18.fdrreg_rebuild/",
+      "/path/to/SO_Lab/18.fdrreg_rebuild/",
       "01.extra.analysis/02.sen_ppv"
     ),
     dest = "base_output",

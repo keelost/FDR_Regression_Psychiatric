@@ -25,7 +25,6 @@
 #       --seed 100
 #
 # Date: 2026/07/05
-# Author: Chief Scientist
 # Version: 2.0
 # Update: Reuses harmonised MAGMA input files produced by fdrreg.R v2.0.
 
@@ -273,7 +272,7 @@ cat("============================================================\n")
 #---- Fixed Path Parameters ----#
 #-------------------------------#
 
-base_output_path <- "/exeh_4/jinghong_qiu/SO_Lab/18.fdrreg_rebuild"
+base_output_path <- "/path/to/SO_Lab/18.fdrreg_rebuild"
 
 sensitivity_output_path <- file.path(
   base_output_path,
