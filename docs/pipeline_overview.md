@@ -22,10 +22,13 @@ The ordinary Bash entry point is `scripts/run_pipeline.sh`. It reads
 4. `magma`: run gene-level FDRreg from prepared MAGMA inputs and outputs.
 5. `metaxcan`: run tissue-level FDRreg for v7, v8, or both.
 6. `smultixcan`: run multi-tissue FDRreg for v7, v8, or both.
-7. `sensitivity`: run rg and absolute-z sensitivity analyses, keeping v7 and
-   v8 results separate.
+7. `sensitivity`: run rg sensitivity and covariate sign-mode analyses. The
+   latter compare the primary absolute-z covariates with separate positive and
+   negative components for SNP and MetaXcan results. Versioned results remain
+   separate.
 8. `enrichment`: run versioned drug and KEGG/GO enrichment analyses.
-9. `validation`: run PPV and temporal validation.
+9. `validation`: perform temporal validation by comparing sensitivity and PPV
+   for FDRreg and conventional FDR control in newer datasets.
 10. `summary`: generate result summaries and risk-locus tables.
 
 The `all` stage runs stages 3 through 10. Imputation and LDSC are intentionally

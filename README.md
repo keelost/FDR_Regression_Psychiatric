@@ -126,8 +126,8 @@ The supplementary analyses consume the following main-workflow products:
 | Imputation | DIST audit | Check overlap, mapping, and variant retention in the DIST-imputed files |
 | SNP FDRreg | Decorrelation diagnosis (`deco_diagnosis`) | Compare pre- and post-decorrelation correlations and validate the transform |
 | SNP, MAGMA, and SMultiXcan FDRreg | Genetic-correlation sensitivity (`rg`) | Refit or compare results under alternative genetic-correlation covariates |
-| SNP and MetaXcan FDRreg | Absolute-z sensitivity (`zabs`) | Test whether conclusions are robust to using absolute rather than signed z-scores |
-| SNP, MAGMA, MetaXcan, and SMultiXcan FDRreg | Sensitivity/PPV (`sen_ppv`) | Perform temporal validation and compare sensitivity and positive predictive value |
+| SNP and MetaXcan FDRreg | Covariate sign-mode analysis (`zabs`) | Compare the primary absolute-z covariates with direction-stratified positive and negative covariates |
+| SNP, MAGMA, MetaXcan, and SMultiXcan FDRreg | Temporal validation (`sen_ppv`) | Compare FDRreg with conventional FDR control using sensitivity and positive predictive value in newer datasets |
 | MAGMA, MetaXcan, and SMultiXcan FDRreg | Ablation | Quantify the contribution of covariate groups and model components |
 | MAGMA and SMultiXcan FDRreg | Drug enrichment | Test significant genes against drug and ATC resources |
 | MAGMA and SMultiXcan FDRreg | KEGG/GO enrichment | Test pathway, GO, KEGG, and Reactome enrichment using analysis-specific backgrounds |
@@ -136,6 +136,28 @@ Summary and diagnostic utilities aggregate these versioned outputs without
 mixing GTEx releases. The v7 branch is retained because it more closely
 reproduces the earlier study results; v8 provides results using the newer
 models.
+
+### Why the primary analysis uses absolute z-scores
+
+FDRreg uses its covariates in a logistic link to model the prior probability
+that a hypothesis is non-null. Entering a signed z-score as a single covariate
+would impose a monotonic relationship: depending on the fitted coefficient,
+one direction would increase the estimated non-null probability while an
+equally strong association in the opposite direction would decrease it. This
+is generally inappropriate for SNP-level pleiotropy because strongly
+protective and strongly risk-increasing associations can both indicate a
+functional locus. The primary analysis therefore uses `abs(z)` to represent
+association magnitude and covariate informativeness.
+
+The `zabs` supplementary analysis does not treat signed z-scores as a single
+linear covariate. Instead, for each auxiliary trait it compares the primary
+`abs(z)` feature with two direction-stratified features: a positive component
+and a negative component, each encoded by its magnitude. In the representative
+SCZ SNP analysis, this split produced no substantial change in the number of
+discovered loci. For S-PrediXcan (MetaXcan), direction can be biologically
+informative because up- and down-regulated predicted expression may have
+different relationships with the non-null probability; the direction-split
+analysis produced additional findings in the SCZ datasets.
 
 ## Code organization
 
